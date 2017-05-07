@@ -1,0 +1,15 @@
+-Xajruntimetarget:1.5
+-1.8
+-encoding
+UTF-8
+-source
+1.8
+-target
+1.8
+-classpath
+/home/ec2-user/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar:/home/ec2-user/.m2/repository/org/aspectj/aspectjrt/1.8.10/aspectjrt-1.8.10.jar:/home/ec2-user/.m2/repository/org/aspectj/aspectjweaver/1.8.10/aspectjweaver-1.8.10.jar:/home/ec2-user/.m2/repository/net/sourceforge/plantuml/plantuml/8056/plantuml-8056.jar:/home/ec2-user/UMLParserTenant2/SequenceDiagramGenerator/target/test-classes:/home/ec2-user/UMLParserTenant2/SequenceDiagramGenerator/target/classes
+-aspectpath
+/home/ec2-user/UMLParserTenant2/SequenceDiagramGenerator/target/classes
+-d
+/home/ec2-user/UMLParserTenant2/SequenceDiagramGenerator/target/test-classes
+/home/ec2-user/UMLParserTenant2/SequenceDiagramGenerator/src/test/java/MainTest.java
