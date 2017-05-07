@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+
+    <form action="/tenant3/generateUML" method="post" encType="multipart/form-data">
+        <input type="file" id="my_file" name="inputFile" />
+        <input type="submit" value="upload" />
+    </form>
+  </body>
+</html>
