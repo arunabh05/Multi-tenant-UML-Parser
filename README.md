@@ -18,8 +18,16 @@ The application provides Grader with the following functionalities:
   
 	5. Each tenant provides a different grading criteria. 
   
-4. The database has been developed using Multi-Tenant Data Model with Shared Database with Fixed Extension.
-
 ## Cloud Architecture
+
+1. The application was deployed on AWS in Oregon Zone.
+
+2. The end point of the application is a Classic Loadbalancer which provided scalability to the Application Server, by spinning up new servers providing auto-scaling depending on the load. The auto-scaling group has the ability to create new instances in different availability zones to provide greater availability.
+
+4. The Application server hits the Application Load balancer which provides path based routing and forwards the request to the respective tenant target group.
+
+3. All the tenant target groups have the been configured to pass the request to the tenant servers in the respective tenant auto-scaling groups.
+
+4. The application uses AWS RDS database which followed Multi-Tenant Data Architecture with Shared Database with Fixed Extension Columns.
 
 ![Alt text](https://github.com/arunabh05/Multi-tenant-UML-Parser/blob/master/CloudArchitecture.png)
