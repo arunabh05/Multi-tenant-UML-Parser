@@ -19,5 +19,7 @@ The application provides Grader with the following functionalities:
 	5. Each tenant provides a different grading criteria. 
   
 4. The database has been developed using Multi-Tenant Data Model with Shared Database with Fixed Extension.
-  
+
+## Cloud Architecture
+
 ![Alt text](https://github.com/arunabh05/Multi-tenant-UML-Parser/blob/master/CloudArchitecture.png)
