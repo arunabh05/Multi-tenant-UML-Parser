@@ -13,12 +13,10 @@ var generateUML = function(req, res) {
 	var file = req.files.inputFile;
 	var fileName = req.body.fileName;
 	
-	console.log(fileName);
 	fs.renameSync(file.path, config.newLocation + fileName);
  	fs.chmodSync(config.newLocation + fileName, 0777);	
 	async.series([
-           function(callback) {	
-			
+           function(callback) {				
   		var spawn = require("child_process").spawn;
 		var exec = require('child_process').exec, child;
            	child = exec(config.python.Command + config.newLocation + fileName + ' ' + config.python.outputFile, function(error, stdout, stderr) {
@@ -31,7 +29,6 @@ var generateUML = function(req, res) {
         	});
 	} ], function(err) {
 		if (err) {
-			console.log(err);
 			res.send({
 				error : "Tenant Server Error. Sequence Diagram could not be generated."
 			});
@@ -39,7 +36,6 @@ var generateUML = function(req, res) {
 			base64Img.base64(config.python.outputFile, function(err,binaryImage) {
 				res.setHeader('Content-Type', 'application/json');
 				var encodedImage = {image:binaryImage};
-				console.log(encodedImage);
 				res.json(encodedImage);
 			});
 		}

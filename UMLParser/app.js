@@ -1,4 +1,3 @@
-
 var express = require('express')
   , routes = require('./routes')
 
@@ -14,16 +13,11 @@ var expressSession = require("express-session");
 var session = require('client-sessions');
 var app = express();
 
-var session = require('client-sessions');
-var app = express();
-
-//configure the sessions with our application
 app.use(session({   
 	cookieName: 'session',    
 	secret: 'cloudgrader',    
-	duration: 30 * 60 * 1000,    //setting the time for active session
-	activeDuration: 5 * 60 * 1000,  })); // setting time for the session to be active when the window is open // 5 minutes set currently
-
+	duration: 30 * 60 * 1000,    
+	activeDuration: 5 * 60 * 1000,  })); 
 
 // all environments
 app.set('port', process.env.PORT || 3000);

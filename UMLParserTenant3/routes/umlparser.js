@@ -28,7 +28,6 @@ var generateUML = function(req, res) {
 		  });
 	}], function(err) {
 		if (err) {
-			console.log(err);
 			res.send({
 				error : "Tenant Server Error. Sequence Diagram could not be generated."
 			});

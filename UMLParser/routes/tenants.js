@@ -1,17 +1,13 @@
 var request = require('request');
 var fs = require('fs');
 var mysql = require('./mysql');
-var baseURL = "http://cloudgrader.ck12sigckefa.us-west-2.rds.amazonaws.com:8080/eBay/services";
-
+var config = require('./config');
 
 exports.generateUML = function(req, res) {
-	var IP = 'http://CloudGrader-1611162942.us-west-2.elb.amazonaws.com';
-	var URL = '/' + req.param("tenant");
-	URL += '/generateUML';
-	var port = ':3000';
+	var IP = config.loadbalancer.IP
+	var port = config.loadbalancer.Port;
+	var URL = '/' + req.param("tenant") + '/generateUML';
 
-	console.log(IP + URL + port);
-	console.log(req.body);
 	var formData = {
 		inputFile : fs.createReadStream(req.files.file.path),
 		fileName : req.files.file.name
@@ -28,7 +24,6 @@ exports.generateUML = function(req, res) {
 		} else {
 			var imageData = JSON.parse(httpResponse.body);
 			imageData = imageData.image;
-			console.log(imageData);
 			res.status(200).send({
 				image : imageData
 			});
@@ -43,13 +38,9 @@ exports.grade = function(req, res){
 	var comments = req.param('comments');
 	var user = req.session.username;
 	
-	console.log(user);
-	
 	var insertUser = "insert into TENANT_DATA (TENANT_ID, TENANT_TABLE, COLUMN_1, COLUMN_2, COLUMN_3, COLUMN_4) " +
 			"values ('" + tenant + "', 'Grades' , " + studentID + "," + score + ",'" + comments + "','" + user +"');"
 			
-	console.log(insertUser);
-	
 	mysql.insertData(function(err, user) {
 		if (err) {
 			res.status(401).send();
@@ -59,7 +50,6 @@ exports.grade = function(req, res){
 				json_responses = {
 				"results" : user
 				};
-				console.log('success MOFOS');
 				res.send(json_responses);
 			} else {
 				res.status(401).send();
@@ -72,7 +62,6 @@ exports.records = function(req, res){
 
 	var user = req.session.username;
 	var getRecords = "select * from TENANT_DATA where COLUMN_4='"+user+"';"
-	console.log(getRecords);
 	var tenant1 = [];
 	var tenant2 = [];
 	var tenant3 = [];
@@ -80,7 +69,6 @@ exports.records = function(req, res){
 	
 	mysql.fetchData(function(err, results) {
 		if (err) {
-			console.log(err);
 			throw err;
 			res.status(500).send();
 		} else {
@@ -107,5 +95,4 @@ exports.records = function(req, res){
 			}
 		}
 	}, getRecords);
-
 };

@@ -1,5 +1,5 @@
 // public/js/app.js
-var app = angular.module('CloudGrader', [ 'ngRoute', 'appRoutes', 'MainCtrl',
+var app = angular.module('CloudGrader', [ 'ngRoute', 'appRoutes', 
 		'LoginCtrl', 'TenantCtrl' ]);
 app.config([ '$qProvider', function($qProvider) {
 	$qProvider.errorOnUnhandledRejections(false);

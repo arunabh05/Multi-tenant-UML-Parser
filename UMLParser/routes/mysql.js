@@ -2,7 +2,6 @@ var ejs = require('ejs');
 var mysql = require('mysql');
 var config = require('./config.js');
 
-// Put your mysql configuration settings - user, password, database and port
 function getConnection() {
 	var connection = mysql.createConnection({
 		host : config.mysql.url,

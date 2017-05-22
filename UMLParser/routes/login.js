@@ -7,11 +7,9 @@ var afterLogin = function(req, res) {
 	var username = req.param("username");
 	
 	var getUser = "select * from USERS where USERNAME='" + username + "';";
-	console.log(getUser);
 	
 	mysql.fetchData(function(err, results) {
 		if (err) {
-			console.log(err);
 			res.status(500).send();
 			throw err;
 		} else {
