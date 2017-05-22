@@ -1,0 +1,101 @@
+<!-- MENU BAR -->
+<div class="row" id="header2">
+	<div class="col-md-1"><a href="/Home"><img class="logo" src="/images/logo.PNG" alt="Logo"></a></div>
+	<div class="col-md-9">
+		<ul class="nav nav-pills" id="menuDropdown">
+			<li class="dropdown">
+					<li class="list"><a ng-href="home">Home</a></li>
+		        	<li class="list"><a ng-href="/tenants">Grade a File </a></li>
+		  	</li>
+		</ul>
+	</div>
+	<div class="col-md-2">
+		<button ng-click="logout()" style="fixed: right" type="submit" id="logoutBtn" class="btn btn-primary">
+			Logout  <span class="glyphicon glyphicon-log-out">  </span>
+		</button>
+	</div>
+</div>
+
+<!-- BODY -->
+<div id="body">
+	<div class="row" id="scores">
+		<div class="col-md-3">
+			<h3>Tenant1 Grades</h3>
+			<h5>Max Score: 10</h5>
+			<div ng-repeat="score in tenant1 ">
+				<div ng-hide='score.COLUMN_2 < 4' class="alert alert-success">
+					<strong>Student ID: {{score.COLUMN_1}}</br>
+							Grade: {{score.COLUMN_2}} </br>
+							Comments: {{score.COLUMN_3}} </br>
+					</strong>
+				</div>
+				<div ng-hide='score.COLUMN_2 >= 4' class="alert alert-danger">
+					<strong>Student ID: {{score.COLUMN_1}}</br>
+							Grade: {{score.COLUMN_2}} </br>
+							Comments: {{score.COLUMN_3}} </br>
+					</strong>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+				<h3>Tenant2 Grades</h3>
+				<h5>Max Score: 100</h5>
+				<div ng-repeat="score in tenant2 ">
+				<div ng-hide='score.COLUMN_2 < 25' class="alert alert-success">
+					<strong>Student ID: {{score.COLUMN_1}}</br>
+							Grade: {{score.COLUMN_2}} </br>
+							Comments: {{score.COLUMN_3}} </br>
+					</strong>
+				</div>
+				<div ng-hide='score.COLUMN_2 >= 25' class="alert alert-danger">
+					<strong>Student ID: {{score.COLUMN_1}}</br>
+							Grade: {{score.COLUMN_2}} </br>
+							Comments: {{score.COLUMN_3}} </br>
+					</strong>
+				</div>
+			</div>
+		</div>
+			
+		<div class="col-md-3">
+				<h3>Tenant3 Grades</h3>
+				<h5>Max Score: 5</h5>
+				<div ng-repeat="score in tenant3 ">
+				<div ng-hide='score.COLUMN_2 < 2' class="alert alert-success">
+					<strong>Student ID: {{score.COLUMN_1}}</br>
+							Grade: {{score.COLUMN_2}} </br>
+							Comments: {{score.COLUMN_3}} </br>
+					</strong>
+				</div>
+				<div ng-hide='score.COLUMN_2 >= 2' class="alert alert-danger">
+					<strong>Student ID: {{score.COLUMN_1}}</br>
+							Grade: {{score.COLUMN_2}} </br>
+							Comments: {{score.COLUMN_3}} </br>
+					</strong>
+				</div>
+			</div></br></br>
+		
+		</div>
+		
+		<div class="col-md-3">
+				<h3>Tenant4 Grades</h3>
+				<h5>Max Score: 20</h5>
+				<div ng-repeat="score in tenant4 ">
+				<div ng-hide='score.COLUMN_2 < 4' class="alert alert-success">
+					<strong>Student ID: {{score.COLUMN_1}}</br>
+							Grade: {{score.COLUMN_2}} </br>
+							Comments: {{score.COLUMN_3}} </br>
+					</strong>
+				</div>
+				<div ng-hide='score.COLUMN_2 >= 8' class="alert alert-danger">
+					<strong>Student ID: {{score.COLUMN_1}}</br>
+							Grade: {{score.COLUMN_2}} </br>
+							Comments: {{score.COLUMN_3}} </br>
+					</strong>
+				</div>
+			</div></br>
+		</div>
+	</div>
+</div>
+
+<!-- FOOTER -->
+<div id="footer"><strong>Cloud Grader - Arunabh Shrivastava</strong></div>

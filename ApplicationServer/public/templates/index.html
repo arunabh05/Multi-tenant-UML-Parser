@@ -1,0 +1,60 @@
+
+	<!-- MENU BAR -->
+	<div id="header">
+		<a href="/"> <img class="logo" src="/images/logo.PNG" alt="Logo"></a>
+	</div>
+
+	<!-- BODY -->
+	<div id="body">
+		<div class="col-md-4"></div>
+		<div class="col-md-4"></div>
+		<div ng-controller="LoginController" id="loginForm" class="col-md-3">
+			<ul class="nav nav-tabs">
+				<li class="active"><a data-toggle="tab" href="#login">Sign in</a></li>
+				<li><a data-toggle="tab" href="#register">Register</a></li>
+			</ul>
+			<div class="tab-content">
+				<div id="login" class="tab-pane fade in active">
+					<br>
+					<form ng-submit="validateLogin()" method="post">
+						<div class="input-group margin-bottom-sm">
+  							<span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+  							<input type="text" placeholder="Username" maxlength="25" required class="form-control" ng-model="userId" />
+						</div></br>
+						<div class="input-group">
+  							<span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+  							<input type="password" placeholder="Password" maxlength="25" required class="form-control" ng-model="password"/>
+  						</div></br>
+
+						<div><input type="submit" id="login_btn" value="Sign in" class="btn btn-primary btn-block"/></div><br>
+						<div class="alert alert-danger" ng-hide="invalid_login"><strong>Invalid Email or Password</strong></div>
+					</form>
+				</div>
+				<div id="register" class="tab-pane fade"><br>
+					<form ng-submit="validateRegister()" method="post">
+						<div><input type="text" placeholder="First Name" maxlength="25" required class="form-control" ng-model="fname"></div><br>
+						<div><input type="text" placeholder="Last Name" maxlength="25" required class="form-control" ng-model="lname"></div><br>
+						<div><input type="text" placeholder="Username" maxlength="25" required class="form-control" ng-model="username2"></div><br>
+						<div><input type="email" placeholder="Email" maxlength="50" required class="form-control" ng-model="email"></div><br>
+						<div><input type="email" placeholder="Re-Enter Email" maxlength="50" required class="form-control" ng-model="remail"></div><br>
+						<div><input type="password" placeholder="Password" maxlength="25" required class="form-control" ng-model="password2"></div><br>
+						<div>By Registering, you agree that you've read and accepted our User
+							 	 Agreement, you're at least 18 years old, and you consent to our
+							 	 Privacy Notice and receiving marketing communications from us.
+						</div><br>
+						<div><input type="submit" id="register_btn" value="Register" class="btn btn-primary btn-block"></div><br>
+						<div class="alert alert-danger" ng-hide="invalid_register"><strong>Invalid Details</strong></div>
+						<div class="alert alert-danger" ng-hide="email_unmatch"><strong>Email does not match</strong></div>
+						<div><br></div>
+						<div ng-hide="invalid_register"><strong>Username or Email already exist</strong></div>
+					</form>
+				</div>
+			</div>
+	 </div>
+	 <div class="col-md-1"></div>
+	</div>
+
+	<!-- FOOTER -->
+	<div id="footer" class="row">
+		<div class="col-md-12"><strong>Cloud Grader - Arunabh Shrivastava</strong></div>
+	</div>
