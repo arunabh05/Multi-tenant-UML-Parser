@@ -3,11 +3,12 @@ A multi-tenant SaaS application with four tenants providing service to generate 
 
 The application provides Grader with the following functionalities:
 
-1. Authentication : A new grader can create an account and get started with grading UML Diagram. User authentication uses bcrypt for securing the user details.
+**1. Authentication** : A new grader can create an account and get started with grading UML Diagram. User authentication uses bcrypt for securing the user details.
 
-2. Grader Dashboard : The grader can view all the students he has graded and which tenant service he/she used. The dashboard is developed to provide grader with better tracking of students performance. 
+**2. Grader Dashboard** : The grader can view all the students he has graded and which tenant service he/she used. The dashboard is developed to provide grader with better tracking of students performance. 
 
-3. Grading a new file:
+**3. Grading a new file**:
+
 	1. Grader can choose a tenant service from all the available tenants. 
   
 	2. Next, he/she upload a zip or text file, depending on the tenant service he/she chose.
